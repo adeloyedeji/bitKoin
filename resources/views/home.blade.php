@@ -56,5 +56,25 @@
         </div>
     </div>
     <br><br>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-transparent">
+                    <h4>Trade Statistics</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
 </div>
 @endsection

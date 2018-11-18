@@ -36,4 +36,9 @@ class HomeRepository implements HomeInterface
         $dollar_price = $json_feed->rates->NGN;
         return $dollar_price;
     }
+
+    public function sell_statistics()
+    {
+        
+    }
 }
