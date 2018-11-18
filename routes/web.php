@@ -27,6 +27,7 @@ Route::get('/account-verification', 'AccountVerificationController@index')->name
 Route::post('/account-verification/phone', 'AccountVerificationController@phoneVerification')->name('verification.phone');
 Route::post('/account-verification/bvn', 'AccountVerificationController@bvnVerification')->name('verification.bvn');
 Route::get('/account-blocked', 'ProfileController@blockedAccount')->name('account.blocked');
+Route::get('/get-btc-history', 'HomeController@get_btc_history')->name('get-btc-history');
 Route::prefix('admin')->group(function() {
     Route::get('/dashboard', 'Admin\DashboardController@dashboard')->name('admin.dashboard');
     Route::get('/users', 'Admin\UserController@index')->name('admin.users.index');

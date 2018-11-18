@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Interfaces\HomeInterface;   
+
 class HomeController extends Controller
 {
     /**
@@ -11,8 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    protected $home;
+    public function __construct(HomeInterface $home)
     {
+        $this->home = $home;
         $this->middleware(['verified', 'auth', 'blocked', 'admin']);
     }
 
@@ -23,26 +27,31 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // get current price from coinbase
-        $current_price_url = "https://api.coindesk.com/v1/bpi/currentprice.json";
-        $json_data  = file_get_contents($current_price_url);
-        $json_feed  = json_decode($json_data);
-        $current_price = $json_feed->bpi;
-        $current_usd_price = $current_price->USD->rate_float;
-
-        // get dollar exchange rate
-        $dollar_url = 'https://openexchangerates.org/api/latest.json?app_id=d2f88285655f4e3ea528c38aaf301566';
-        $json_data  = file_get_contents($dollar_url);
-        $json_feed  = json_decode($json_data);
-        $dollar_price = $json_feed->rates->NGN;
+        $current_usd_price = $this->home->get_btc_usd_price();
+        
+        $dollar_price = $this->home->get_dollar_exchange_rate();
 
         // BTC in Naira
         $btc_to_naira = number_format(($current_usd_price * $dollar_price), 2);
 
-        // get historical data
-        $start_date = date("Y-m-d",strtotime("-1 month"));
-        $end_date   = date("Y-m-d");
-        $bpi_price_index = \App\BitcoinPriceIndex::whereBetween('date', [$start_date, $end_date])->get();
-        return view('home', compact('bpi_price_index', 'current_usd_price', 'btc_to_naira'));
+        return view('home', compact('current_usd_price', 'btc_to_naira', 'dollar_price'));
+    }
+
+    public function get_btc_history(Request $request)
+    {
+        $data   = array();
+        $temp   = $this->home->get_btc_history();
+        $dates  = collect($this->home->get_btc_history())->pluck('date');
+        $values = collect($this->home->get_btc_history())->pluck('value');
+        $dollar_price = $this->home->get_dollar_exchange_rate();
+        foreach($temp as $key => $value)
+        {
+            $data[] = array(strtotime($dates[$key]), $values[$key] * $dollar_price);
+        }
+        if($request->ajax())
+        {
+            return response()->json($data);
+        }
+        return $data;
     }
 }

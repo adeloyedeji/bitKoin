@@ -6,6 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="site-domain" content="{{env('APP_URL')}}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -93,6 +94,12 @@
         var $_dollar = 0;
         var $_btc = 0;
         var ngn_price = 0;
+        let domain = document.head.querySelector('meta[name="site-domain"]');
+        if (domain) {
+            window.server = domain.content;
+        } else {
+            alert('App domain not set!');
+        }
         const numberWithCommas = (x) => 
         {
             x = parseFloat(Math.round(x * 100) / 100).toFixed(2);
@@ -125,37 +132,61 @@
                 $('#ngn_price').html('Current Price: ' + numberWithCommas(ngn_price) + '/BTC');
             }, 600000);
 
-            $.getJSON('https://www.highcharts.com/samples/data/aapl-c.json', function (data) {
-                // Create the chart
-                Highcharts.stockChart('container', {
-                    rangeSelector: {
-                        selected: 1
-                    },
-                    title: {
-                        text: 'AAPL Stock Price'
-                    },
-                    series: [{
-                        name: 'AAPL Stock Price',
-                        data: data,
-                        type: 'area',
-                        threshold: null,
-                        tooltip: {
-                            valueDecimals: 2
+            // get btc price history
+            $.ajax({
+                url: server + 'get-btc-history',
+                type: 'GET',
+                dataType: 'JSON',
+                success: function(data) {
+                    data = data;
+                    Highcharts.stockChart('container', {
+                        rangeSelector: {
+                            buttons: [{
+                                type: 'hour',
+                                count: 1,
+                                text: '1h'
+                            }, {
+                                type: 'day',
+                                count: 1,
+                                text: '1D'
+                            }, {
+                                type: 'all',
+                                count: 1,
+                                text: 'All'
+                            }],
+                            selected: 1,
+                            inputEnabled: false
                         },
-                        fillColor: {
-                            linearGradient: {
-                                x1: 0,
-                                y1: 0,
-                                x2: 0,
-                                y2: 1
+                        title: {
+                            text: 'Bitcoin Price Rates'
+                        },
+                        series: [{
+                            name: 'Naira per Coin',
+                            data: data,
+                            type: 'area',
+                            threshold: null,
+                            tooltip: {
+                                valueDecimals: 2
                             },
-                            stops: [
-                                [0, Highcharts.getOptions().colors[0]],
-                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                            ]
-                        }
-                    }]
-                });
+                            fillColor: {
+                                linearGradient: {
+                                    x1: 0,
+                                    y1: 0,
+                                    x2: 0,
+                                    y2: 1
+                                },
+                                stops: [
+                                    [0, Highcharts.getOptions().colors[0]],
+                                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                                ]
+                            }
+                        }]
+                    });
+                }, 
+                fail: function(error) {
+                    alert('unable to load bitcoin history. Please reload page.');
+                    console.log(error);
+                }
             });
         })
     </script>
