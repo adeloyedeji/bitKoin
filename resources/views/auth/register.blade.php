@@ -59,7 +59,7 @@
 			<section class="section section--no-pt section--no-pb section--light-bg">
 				<div class="grid grid--container">
 					<div class="authorization authorization--login">
-						<a class="site-logo" href="index.html">
+						<a class="site-logo" href="{{url('/')}}">
 							<img class="img-responsive" width="175" height="42" src="{{ asset('welcome/img/site_logo_2.png') }}" alt="demo">
 						</a>
 
@@ -77,7 +77,7 @@
 							</div>
 
 							<div class="input-wrp">
-                                <input class="textfield{{ $errors->has('fname') ? ' is-invalid' : '' }}" type="text" value="{{old('fname')}}" placeholder="First name" name="fname" id="fname" required>
+                                <input class="textfield{{ $errors->has('fname') ? ' is-invalid' : '' }}" type="text" value="{{old('fname')}}" placeholder="First name" name="fname" id="fname" required autofocus>
                                 @if ($errors->has('fname'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong style='color:red'>{{ $errors->first('fname') }}</strong>
@@ -145,7 +145,7 @@
 							</div>
 
 							<div class="input-wrp">
-                                <input class="textfield{{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" value="{{old('email')}}" placeholder="Email" name="email" id="email" required autofocus>
+                                <input class="textfield{{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" value="{{old('email')}}" placeholder="Email" name="email" id="email" required>
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong style='color:red'>{{ $errors->first('email') }}</strong>

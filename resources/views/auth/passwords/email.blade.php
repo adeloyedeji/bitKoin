@@ -59,7 +59,7 @@
 			<section class="section section--no-pt section--no-pb section--light-bg">
 				<div class="grid grid--container">
 					<div class="authorization authorization--login">
-						<a class="site-logo" href="index.html">
+						<a class="site-logo" href="{{url('/')}}">
 							<img class="img-responsive" width="175" height="42" src="{{ asset('welcome/img/site_logo_2.png') }}" alt="demo">
 						</a>
 
