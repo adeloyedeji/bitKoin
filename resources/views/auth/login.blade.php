@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <title>{{env('APP_NAME')}}</title>
+        <title>{{env('APP_NAME')}} | Sign In</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -78,7 +78,7 @@
 
 							<div class="input-wrp">
 								<i class="textfield-ico fontello-eye"></i>
-                                <input class="textfield{{ $errors->has('email') ? ' is-invalid' : '' }}" type="password" value="" placeholder="Password" name="password" id="password">
+                                <input class="textfield{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" value="" placeholder="Password" name="password" id="password">
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
