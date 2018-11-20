@@ -95,6 +95,105 @@
         <!-- start main -->
         <main role="main">
             <!-- start section -->
+			<section class="section">
+                    <div class="grid grid--container">
+                        <div class="section-heading section-heading--center  col-MB-60">
+                            <h2 class="__title">Cryptocompare.com widgets</h2>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col col--md-6 col--lg-4">
+                                <div class="col-MB-40">
+                                    <script type="text/javascript">
+                                        baseUrl = "https://widgets.cryptocompare.com/";
+                                        var scripts = document.getElementsByTagName("script");
+                                        var embedder = scripts[ scripts.length - 1 ];
+                                        (function (){
+                                        var appName = encodeURIComponent(window.location.hostname);
+                                        if(appName==""){appName="local";}
+                                        var s = document.createElement("script");
+                                        s.type = "text/javascript";
+                                        s.async = true;
+                                        var theUrl = baseUrl+'serve/v1/coin/converter?fsym=BTC&tsyms=CNY,GOLD,KRW,USD';
+                                        s.src = theUrl + ( theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+                                        embedder.parentNode.appendChild(s);
+                                        })();
+                                    </script>
+    
+                                    <!-- https://www.cryptocompare.com/dev/widget/wizard/?type=10&theme=0&fsym=BTC&tsyms=CNY,GOLD,KRW,USD -->
+                                </div>
+                            </div>
+    
+                            <div class="col col--md-6 col--lg-4">
+                                <div class="col-MB-40">
+                                    <script type="text/javascript">
+                                        baseUrl = "https://widgets.cryptocompare.com/";
+                                        var scripts = document.getElementsByTagName("script");
+                                        var embedder = scripts[ scripts.length - 1 ];
+                                        (function (){
+                                        var appName = encodeURIComponent(window.location.hostname);
+                                        if(appName==""){appName="local";}
+                                        var s = document.createElement("script");
+                                        s.type = "text/javascript";
+                                        s.async = true;
+                                        var theUrl = baseUrl+'serve/v1/coin/tiles?fsym=BTC&tsyms=CNY,GOLD,KRW,USD,EUR,GBP,BTC';
+                                        s.src = theUrl + ( theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+                                        embedder.parentNode.appendChild(s);
+                                        })();
+                                    </script>
+    
+                                    <!-- https://www.cryptocompare.com/dev/widget/wizard/?type=3&theme=0&fsym=BTC&tsyms=CNY,GOLD,KRW,USD,EUR,GBP,BTC -->
+                                </div>
+                            </div>
+    
+                            <div class="col col--lg-4">
+                                <div class="col-MB-40">
+                                    <script type="text/javascript">
+                                        baseUrl = "https://widgets.cryptocompare.com/";
+                                        var scripts = document.getElementsByTagName("script");
+                                        var embedder = scripts[ scripts.length - 1 ];
+                                        (function (){
+                                        var appName = encodeURIComponent(window.location.hostname);
+                                        if(appName==""){appName="local";}
+                                        var s = document.createElement("script");
+                                        s.type = "text/javascript";
+                                        s.async = true;
+                                        var theUrl = baseUrl+'serve/v1/coin/multi?fsyms=BTC,ETH,XMR,LTC&tsyms=CNY,GOLD,KRW,USD';
+                                        s.src = theUrl + ( theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+                                        embedder.parentNode.appendChild(s);
+                                        })();
+                                    </script>
+    
+                                    <!-- https://www.cryptocompare.com/dev/widget/wizard/?type=4&theme=0&fsyms=BTC,ETH,XMR,LTC&tsyms=CNY,GOLD,KRW,USD -->
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col">
+                                <div class="col-MB-40">
+                                    <script type="text/javascript">
+                                        baseUrl = "https://widgets.cryptocompare.com/";
+                                        var scripts = document.getElementsByTagName("script");
+                                        var embedder = scripts[ scripts.length - 1 ];
+                                        (function (){
+                                        var appName = encodeURIComponent(window.location.hostname);
+                                        if(appName==""){appName="local";}
+                                        var s = document.createElement("script");
+                                        s.type = "text/javascript";
+                                        s.async = true;
+                                        var theUrl = baseUrl+'serve/v3/coin/chart?fsym=BTC&tsyms=CNY,GOLD,KRW,USD';
+                                        s.src = theUrl + ( theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+                                        embedder.parentNode.appendChild(s);
+                                        })();
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- end section -->
+            <!-- start section -->
             <section class="section section--no-pb">
                 <div class="grid grid--container">
                     <div class="row row--xs-middle">
@@ -112,6 +211,67 @@
                                     </div>
                                 </div>
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- end section -->
+
+            <!-- start section -->
+			<section class="section section--no-pt" style="margin-bottom:-2em !important">
+                <br><br>
+                <script>
+                    (function(b,i,t,C,O,I,N) {
+                        window.addEventListener('load',function() {
+                            if(b.getElementById(C))return;
+                            I=b.createElement(i),N=b.getElementsByTagName(i)[0];
+                            I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
+                        },false)
+                    })(document,'script','{{ asset("welcome/js/widget.js") }}','btcwdgt');
+                </script>
+
+                <div class="grid grid--container">
+                    <div class="section-heading section-heading--center  col-MB-60">
+                        <h2 class="__title">Bitcoin.com widgets</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col--md-6">
+                            <div class="col-MB-40">
+                                <div class="btcwdgt-chart"></div>
+                            </div>
+                        </div>
+
+                        <div class="col col--md-6">
+                            <div class="col-MB-40">
+                                <div class="btcwdgt-chart" bw-theme="light"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col--md-6 col--lg-3">
+                            <div class="col-MB-40">
+                                <div class="btcwdgt-price"></div>
+                            </div>
+                        </div>
+
+                        <div class="col col--md-6 col--lg-3">
+                            <div class="col-MB-40">
+                                <div class="btcwdgt-price" bw-theme="light" bw-cur="eur"></div>
+                            </div>
+                        </div>
+
+                        <div class="col col--md-6 col--lg-3">
+                            <div class="col-MB-40">
+                                <div class="btcwdgt-price" bw-cash="true"></div>
+                            </div>
+                        </div>
+
+                        <div class="col col--md-6 col--lg-3">
+                            <div class="col-MB-40">
+                                <div class="btcwdgt-price" bw-theme="light" bw-cur="rub"></div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -62,7 +62,15 @@
 						<a class="site-logo" href="{{url('/')}}">
 							<img class="img-responsive" width="175" height="42" src="{{ asset('welcome/img/site_logo_2.png') }}" alt="demo">
 						</a>
-
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li style='color:red'>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form class="authorization__form"  method="POST" action="{{ route('register') }}">
                             @csrf
 							<h3 class="__title">Sign Up</h3>
@@ -170,7 +178,7 @@
 
                             <p>
                                 <label class="checkbox">
-                                    <input name="p1" type="checkbox" value="ok" required {{ old('agree') ? 'checked' : '' }}>
+                                    <input name="agree" id="agree" type="checkbox" value="ok" required {{ old('agree') ? 'checked' : '' }}>
                                     <i class="fontello-check"></i><span>I agree with <a href="#">Terms of Services</a></span>
                                 </label>
 
