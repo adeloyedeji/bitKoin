@@ -218,7 +218,7 @@
             <!-- end section -->
 
             <!-- start section -->
-			<section class="section section--no-pt" style="margin-bottom:-2em !important">
+			<section class="section section--no-pt">
                 <br><br>
                 <script>
                     (function(b,i,t,C,O,I,N) {
