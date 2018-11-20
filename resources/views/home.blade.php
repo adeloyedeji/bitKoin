@@ -3,23 +3,70 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header bg-transparent">Dashboard</div>
+        <div class="col-md-12">
+            <!-- start section -->
+			<section class="section section--no-pt">
+                <br><br>
+                <script>
+                    (function(b,i,t,C,O,I,N) {
+                        window.addEventListener('load',function() {
+                            if(b.getElementById(C))return;
+                            I=b.createElement(i),N=b.getElementsByTagName(i)[0];
+                            I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
+                        },false)
+                    })(document,'script','{{ asset("welcome/js/widget.js") }}','btcwdgt');
+                </script>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                <div class="grid grid--container">
+                    <div class="section-heading section-heading--center  col-MB-60">
+                        <h2 class="__title">Bitcoin Trade Statistics</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col--md-6">
+                            <div class="col-MB-40">
+                                <div class="btcwdgt-chart"></div>
+                            </div>
                         </div>
-                    @endif
 
-                    You are logged in!
+                        <div class="col col--md-6">
+                            <div class="col-MB-40">
+                                <div class="btcwdgt-chart" bw-theme="light"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col col--md-6 col--lg-3">
+                            <div class="col-MB-40">
+                                <div class="btcwdgt-price"></div>
+                            </div>
+                        </div>
+
+                        <div class="col col--md-6 col--lg-3">
+                            <div class="col-MB-40">
+                                <div class="btcwdgt-price" bw-theme="light" bw-cur="eur"></div>
+                            </div>
+                        </div>
+
+                        <div class="col col--md-6 col--lg-3">
+                            <div class="col-MB-40">
+                                <div class="btcwdgt-price" bw-cash="true"></div>
+                            </div>
+                        </div>
+
+                        <div class="col col--md-6 col--lg-3">
+                            <div class="col-MB-40">
+                                <div class="btcwdgt-price" bw-theme="light" bw-cur="rub"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
+            <!-- end section -->
         </div>
     </div>
-    <br><br>
+    {{-- <br><br>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -54,10 +101,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <br><br>
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-transparent">
                     <h4>Trade Statistics</h4>
@@ -68,7 +115,7 @@
                             
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            
+
                         </div>
                     </div>
                 </div>

@@ -98,7 +98,7 @@
 			<section class="section">
                     <div class="grid grid--container">
                         <div class="section-heading section-heading--center  col-MB-60">
-                            <h2 class="__title">Cryptocompare.com widgets</h2>
+                            <h2 class="__title">Crypto Compare</h2>
                         </div>
     
                         <div class="row">
@@ -232,7 +232,7 @@
 
                 <div class="grid grid--container">
                     <div class="section-heading section-heading--center  col-MB-60">
-                        <h2 class="__title">Bitcoin.com widgets</h2>
+                        <h2 class="__title">Bitcoin Trade Statistics</h2>
                     </div>
 
                     <div class="row">

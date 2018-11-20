@@ -85,7 +85,7 @@
 
 						<h2 class="__title">Page not found</h2>
 
-						<p class="col-MB-40">The page you are looking for was moved, removed, renamed or might never existed.</p>
+						<p class="col-MB-40">The page you are looking for was moved, removed, renamed or might have never existed.</p>
 
 						<p><a class="custom-btn custom-btn--medium custom-btn--style-2" href="{{url('/')}}">Home page</a></p>
 					</div>

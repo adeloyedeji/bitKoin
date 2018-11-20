@@ -86,7 +86,7 @@
         </main>
     </div>
     @if(active('home'))
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
     <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
@@ -127,7 +127,7 @@
             setInterval(function() {
                 getBTCDollar();
                 getDollarConversion();
-                // ngn_price = $_btc * $_dollar;
+                ngn_price = $_btc * $_dollar;
                 console.log(ngn_price);
                 $('#ngn_price').html('Current Price: ' + numberWithCommas(ngn_price) + '/BTC');
             }, 600000);
@@ -189,7 +189,7 @@
                 }
             });
         })
-    </script>
+    </script> --}}
     @endif
 </body>
 </html>
